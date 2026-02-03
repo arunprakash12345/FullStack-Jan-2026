@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <form>
+      <!-- Text Input -->
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your Name"
+        name="name"
+        value=""
+      />
+      <br />
+      <br />
+      <!-- Password -->
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your Password"
+        name="password"
+        value=""
+      />
+      <br />
+      <br />
+      <!-- Radio Button -->
+      <label for="gender">Gender:</label>
+      <input type="radio" id="male" name="gender" value="male" />
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female" />
+      <label for="female">Female</label>
+      <br />
+      <br />
+      <!-- Dropdown - options -->
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="India">India</option>
+        <option value="USA" selected>USA</option>
+        <option value="UK">UK</option>
+        <option value="UAE">UAE</option>
+      </select>
+      <br />
+      <br />
+
+      <!-- date-->
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" value="" />
+      <br />
+      <br />
+
+      <!-- time -->
+      <label for="time">Time</label>
+      <input type="time" id="time" name="time" value="" />
+      <br />
+      <br />
+
+      <!-- text area - multi line text -->
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        rows="4"
+        cols="50"
+        name="message"
+        value=""
+      ></textarea>
+      <br />
+      <br />
+
+      <!-- checkbox -->
+      <input type="checkbox" id="subscribe" name="subscribe" />
+      <label for="subscribe"> Subscribe to the news letter</label>
+      <br />
+      <br />
+
+      <button type="reset">Reset</button>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
