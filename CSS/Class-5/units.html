@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Units</title>
+    <style>
+      /* html {
+        font-size: 10px;
+      } */
+
+      * {
+        margin: 0;
+        padding: 0;
+        /* box-sizing: border-box; */
+      }
+      /* .px {
+        width: 1700px;
+        height: 700px;
+        background-color: rgb(29, 174, 174);
+        border: 2px solid black;
+      } */
+
+      /* .container {
+        width: 100px;
+        height: 100px;
+      }
+      /* relative to parents container */
+      /* max values */
+      /* .percentage {
+        width: 50%;
+        height: 50%;
+        background-color: rgb(196, 173, 41);
+        border: 2px solid black;
+        overflow: auto;
+      } */
+
+      /* VW -> viewport width */
+      /* VH -> viewport height */
+      /* they are relative to the size of the browser window */
+      /* .viewport {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(174, 29, 112);
+        border: 2px solid black;
+      } */
+
+      /* 1rem = 16px */
+      /* rem are relative to the root element's(HTML) font size */
+      /* .rem {
+        width: 10rem;
+        height: 10rem;
+        background-color: rgb(29, 112, 174);
+        border: 2px solid black;
+      } */
+
+      .container {
+        font-size: 10px;
+      }
+
+      /* relative to parents font size */
+      .em {
+        width: 10em;
+        height: 10em;
+        background-color: rgb(29, 112, 174);
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Absolute Units vs Relative Units -->
+    <!-- 2px -> pixels -->
+    <!-- relative (according too this/that) -->
+    <!-- <div class="px">Pixel Example</div> -->
+    <!-- relative unit -->
+    <!-- <div class="container">
+      <div class="percentage">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, ipsam.
+      </div>
+    </div> -->
+
+    <!-- <div class="viewport">viewport example</div> -->
+
+    <!-- <div class="rem">Rem Example</div> -->
+
+    <div class="container">
+      <div class="em">EM example</div>
+    </div>
+  </body>
+</html>
