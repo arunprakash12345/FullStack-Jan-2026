@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Query</title>
+    <!-- If you want to apply different styles to 
+     any element/container based different screen sizes -->
+
+    <style>
+      body {
+        font-size: 16px;
+        margin: 20px;
+      }
+
+      @media only screen and (max-width: 600px) {
+        body {
+          font-size: 12px;
+          background-color: rgb(105, 54, 54);
+        }
+      }
+
+      @media only screen and (min-width: 601px) and (max-width: 900px) {
+        body {
+          font-size: 14px;
+          background-color: lightblue;
+        }
+      }
+
+      @media only screen and (min-width: 901px) {
+        body {
+          font-size: 20px;
+          background-color: rgb(68, 90, 68);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Response Design Example</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
+      impedit soluta numquam eveniet! Unde nihil beatae, reprehenderit
+      dignissimos earum ducimus.
+    </p>
+  </body>
+</html>
