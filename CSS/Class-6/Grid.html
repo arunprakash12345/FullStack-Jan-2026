@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-size: 16px;
+        line-height: 1.5;
+        color: dodgerblue;
+        background-color: rgb(237, 230, 229);
+      }
+
+      .container {
+        width: 600px;
+        height: 600px;
+        border: 2px solid black;
+        padding: 10px;
+        margin: 10px 5px;
+        border-radius: 5px;
+        display: grid;
+        /* Autofit vs AutoFill */
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        /* grid-template-rows: 150px 120px 100px; */
+        grid-auto-rows: 200px;
+
+        /* gap */
+        /* column-gap: 10px;
+        row-gap: 20px; */
+        gap: 10px;
+
+        /*justify-items: along the row you can adjust it
+         using start, end, center*/
+        /* justify-items: center; */
+        /*aling-items: along the column you can adjust it
+         using start, end, center*/
+        /* align-items: center; */
+        /* place-items: center; */
+      }
+
+      .item {
+        background-color: dodgerblue;
+        color: white;
+        border: 1px solid whitesmoke;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      .item1 {
+        align-self: start;
+        justify-self: center;
+        order: 2;
+      }
+
+      .item2 {
+        /* grid-column: 2/5; */
+        grid-column: 2/5;
+        grid-row: span 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+      <div class="item item6">6</div>
+      <div class="item item7">7</div>
+      <div class="item item8">8</div>
+      <div class="item item9">9</div>
+      <div class="item item10">10</div>
+      <div class="item item11">11</div>
+      <div class="item item12">12</div>
+    </div>
+  </body>
+</html>
