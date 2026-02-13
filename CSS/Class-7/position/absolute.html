@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        border: 2px solid black;
+        border-radius: 8px;
+        padding: 5px;
+      }
+
+      .innerContainer {
+        position: relative;
+        width: 500px;
+        height: 300px;
+        background-color: lightseagreen;
+      }
+
+      #third {
+        /* aboslute moves with respect to window */
+        /* whether to move with respect to window or with respect to parent is decided by parent element
+        if a parent element has position relative applied then it will move according to parent */
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p id="first">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus,
+        voluptate.
+      </p>
+      <p id="second">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, ad.
+      </p>
+      <div class="innerContainer">
+        <p id="third">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias
+          atque omnis modi! Accusamus, atque voluptatibus.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

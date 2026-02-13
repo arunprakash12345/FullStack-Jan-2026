@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .containerDiv {
+        display: flex;
+        width: 400px;
+        height: 200px;
+        color: red;
+        font-size: 25px;
+      }
+
+      h1 {
+        /*inherit - forceful inheritance from parent overriding 
+        default user agen stylesheet values */
+        font-size: inherit;
+        /* initial - apply useragent style sheet */
+        color: initial;
+      }
+
+      h2 {
+        font-size: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="containerDiv">
+      <h1>This is first heading</h1>
+      <div>
+        <h2>This is second heading</h2>
+      </div>
+      <div>
+        <p>This paragraph inherits styles from its parent div.</p>
+      </div>
+    </div>
+  </body>
+</html>
