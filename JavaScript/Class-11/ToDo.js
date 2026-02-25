@@ -26,12 +26,11 @@ function createTodoList() {
 
   function markComplete(task) {
     let updatedTask;
-    tasks = tasks.map((t) => {
-      if (t.task == task) {
-        t.isCompleted = true;
-      }
-      updatedTask = t;
-    });
+    const index = tasks?.findIndex((t) => t?.task === task);
+    if (index !== -1) {
+      tasks[index].isCompleted = true;
+      updatedTask = tasks[index];
+    }
     return updatedTask;
   }
 
