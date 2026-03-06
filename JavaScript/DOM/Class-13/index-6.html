@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cards {
+        display: flex;
+        background-color: tan;
+      }
+      .card {
+        border: 1px solid black;
+        height: 3rem;
+        width: 3rem;
+        margin: 2rem;
+      }
+
+      .blue {
+        background-color: rgb(85, 85, 161);
+        box-shadow: 0px 0px 6px 5px;
+      }
+
+      .green {
+        background-color: rgb(107, 162, 107);
+        box-shadow: 0px 0px 6px 5px;
+      }
+
+      .red {
+        background-color: rgb(177, 122, 122);
+        box-shadow: 0px 0px 6px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cards">
+      <div class="card" data-color="blue">1</div>
+      <div class="card" data-color="red">2</div>
+      <div class="card" data-color="blue">3</div>
+      <div class="card" data-color="green">4</div>
+      <div class="card" data-color="red">5</div>
+      <div class="card" data-color="blue">6</div>
+      <div class="card" data-color="red">7</div>
+      <div class="card" data-color="green">8</div>
+      <div class="card" data-color="red">9</div>
+      <div class="card" data-color="blue">10</div>
+    </div>
+  </body>
+  <script>
+    // Q Write a script which fetches the data-color attribute of the card on
+    //double clicking on them and attaches the fetched class to that card.
+    // Also changes the data-color attribute to "used"
+
+    // how to get the card
+    const cards = document.querySelectorAll(".card");
+    console.log(cards);
+    // do we know how add event listner ('dblclick')
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].addEventListener("dblclick", function (e) {
+        // classList.add(data-color)
+        const currentCard = e.currentTarget;
+        const cssClass = currentCard.getAttribute("data-color");
+        if (cssClass !== "used") {
+          currentCard.classList.add(cssClass);
+          currentCard.setAttribute("data-color", "used");
+        }
+      });
+    }
+  </script>
+</html>

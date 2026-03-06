@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn-1">Say Hello</button>
+    <button id="btn-2">Say Hello 2</button>
+  </body>
+  <script>
+    // access the element (querySelector or getElementById)
+    const btn = document.getElementById("btn-1");
+    console.log(btn);
+    const btn2 = document.querySelector("#btn-2");
+    console.log(btn2);
+    const btn3 = document.querySelector("button");
+    console.log(btn3);
+    btn3.innerText = "Updating Say Hello";
+    console.log(btn, btn3);
+
+    btn.addEventListener("click", function () {
+      console.log("Btn clicked");
+
+      // on click of button append hello to the page
+      const divElem = document.createElement("div");
+      //   <div></div>
+      divElem.innerText = "Hello";
+      console.log(divElem);
+
+      const body = document.querySelector("body");
+      body.appendChild(divElem);
+    });
+  </script>
+</html>
