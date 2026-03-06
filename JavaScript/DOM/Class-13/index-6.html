@@ -55,8 +55,19 @@
     const cards = document.querySelectorAll(".card");
     console.log(cards);
     // do we know how add event listner ('dblclick')
-    for (let i = 0; i < cards.length; i++) {
-      cards[i].addEventListener("dblclick", function (e) {
+    // for (let i = 0; i < cards.length; i++) {
+    //   cards[i].addEventListener("dblclick", function (e) {
+    //     // classList.add(data-color)
+    //     const currentCard = e.currentTarget;
+    //     const cssClass = currentCard.getAttribute("data-color");
+    //     if (cssClass !== "used") {
+    //       currentCard.classList.add(cssClass);
+    //       currentCard.setAttribute("data-color", "used");
+    //     }
+    //   });
+    // }
+    cards.forEach((card) => {
+      card.addEventListener("dblclick", function (e) {
         // classList.add(data-color)
         const currentCard = e.currentTarget;
         const cssClass = currentCard.getAttribute("data-color");
@@ -65,6 +76,6 @@
           currentCard.setAttribute("data-color", "used");
         }
       });
-    }
+    });
   </script>
 </html>
