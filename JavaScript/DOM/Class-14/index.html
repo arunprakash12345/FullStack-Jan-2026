@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        height: 110px;
+        width: 150px;
+        position: absolute;
+        top: 20px;
+        left: 100px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>Hello</div>
+  </body>
+  <script>
+    const div = document.querySelector("div");
+    const result = div.getBoundingClientRect();
+    console.log(result);
+  </script>
+</html>
