@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather APP</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Current Weather -->
+      <div class="weather">
+        <div class="temp">20</div>
+        <div class="time_location">
+          <p>Location</p>
+          <span>Date&Time</span>
+        </div>
+        <div class="weather_condition">
+          <p><img src="" alt="" /></p>
+          <span>Condition</span>
+        </div>
+        <button class="toggleTemp">C / F</button>
+      </div>
+
+      <!-- Past Weather -->
+      <div class="pastWeather">
+        <h3>Past 3 Days</h3>
+        <div class="history">
+          <div>
+            <p>2026-03-10</p>
+            <p>28 C</p>
+            <p>Sunny</p>
+          </div>
+          <div>
+            <p>2026-03-09</p>
+            <p>28 C</p>
+            <p>Sunny</p>
+          </div>
+          <div>
+            <p>2026-03-08</p>
+            <p>28 C</p>
+            <p>Sunny</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search and Location Button -->
+      <nav>
+        <form>
+          <input
+            type="text"
+            class="searchField"
+            placeholder="Search Location"
+          />
+          <button type="submit">Search</button>
+          <button type="button" class="currentLocation">My Location</button>
+        </form>
+      </nav>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>
