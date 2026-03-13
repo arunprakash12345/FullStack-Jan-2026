@@ -1,0 +1,176 @@
+:root {
+  --headerBackGroundColor: black;
+  --toolbox-priorityColor-cont: #3d3d3d;
+  --pink: lightpink;
+  --blue: lightblue;
+  --green: lightgreen;
+  --purple: #8344ad;
+  --containerRadius: 0.75rem;
+  --colorHover: #485460;
+  --light: whitesmoke;
+  --ticketBackgroundColor: #ecf0f1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.toolbox-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  background: var(--headerBackGroundColor);
+  width: 100vw;
+  height: 4rem;
+}
+
+.toolbox-priority-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2rem;
+  background-color: var(--toolbox-priorityColor-cont);
+  padding: 1.2rem;
+  height: 80%;
+  width: 24%;
+  border-radius: var(--containerRadius);
+  margin-left: 1.5rem;
+}
+
+.color {
+  height: 1.5rem;
+  width: 3rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.color:hover {
+  background-color: var(--colorHover);
+}
+
+.pink {
+  background-color: var(--pink);
+}
+
+.green {
+  background-color: var(--green);
+}
+
+.blue {
+  background-color: var(--blue);
+}
+
+.purple {
+  background-color: var(--purple);
+}
+
+.toolbox-header {
+  color: var(--light);
+  text-align: center;
+}
+
+.action-btn-cont {
+  background-color: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 60%;
+  width: 15%;
+  margin-right: 2rem;
+  border-radius: var(--containerRadius);
+}
+
+.add-btn,
+.remove-btn {
+  font-size: 1.75rem;
+}
+
+.main-cont {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.ticket-cont {
+  height: 10rem;
+  width: 15rem;
+  background-color: var(--ticketBackgroundColor);
+  border-radius: var(--containerRadius);
+  /* padding: 0.5rem; */
+  position: relative;
+}
+
+.ticket-color {
+  height: 10%;
+  background-color: var(--pink);
+  border-top-left-radius: var(--containerRadius);
+  border-top-right-radius: var(--containerRadius);
+}
+
+.ticket-id {
+  height: 10%;
+  font-weight: bolder;
+  font-size: 0.8rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.ticket-area {
+  height: 80%;
+  font: 0.5rem;
+  padding: 0.3rem;
+}
+
+.ticket-lock {
+  position: absolute;
+  bottom: 0.2rem;
+  right: 0.2rem;
+}
+
+.modal-cont {
+  display: none !important;
+  height: 50vh;
+  width: 50vw;
+  top: 25vh;
+  left: 25vw;
+  border-radius: var(--containerRadius);
+  display: flex;
+}
+
+.modal-cont-textarea {
+  height: 100%;
+  width: 75%;
+  outline: none;
+  border: none;
+  resize: none;
+  font-size: 1rem;
+  padding-left: 0.8rem;
+  border-top-left-radius: var(--containerRadius);
+  border-bottom-left-radius: var(--containerRadius);
+}
+
+.priority-color-cont {
+  height: 100%;
+  width: 25%;
+  background-color: var(--headerBackGroundColor);
+  border-radius: var(--containerRadius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.priority-color {
+  height: 3rem;
+  width: 5rem;
+  border-radius: var(--containerRadius);
+  cursor: pointer;
+}
+
+.active {
+  border: 0.4rem solid var(--light);
+}
