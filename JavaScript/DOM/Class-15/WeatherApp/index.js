@@ -9,6 +9,7 @@ const weatherField = document.querySelector(".weather_condition span");
 const toggleBtn = document.querySelector(".toggleTemp");
 const locationBtn = document.querySelector(".currentLocation");
 const historyContainer = document.querySelector(".history");
+const loader = document.querySelector(".loading");
 const isCelsius = true;
 
 const updateWeather = (
@@ -28,6 +29,7 @@ const updateWeather = (
 const fetchPastData = async (value) => {
   try {
     historyContainer.innerHTML = "";
+    loader.innerText = "Loading....";
     for (let i = 1; i <= 3; i++) {
       const date = new Date();
       date.setDate(date.getDate() - i);
@@ -47,13 +49,16 @@ const fetchPastData = async (value) => {
     }
   } catch (error) {
     console.log(error);
+    alert(error);
   } finally {
+    loader.innerText = "";
   }
 };
 
 const fetchData = async (value) => {
   try {
     // actual code
+    loader.innerText = "Loading....";
     const endPoint = `
     http://api.weatherapi.com/v1/current.json?key=28110fb8554942b289d20012261103&q=${value}`;
     const response = await fetch(endPoint);
@@ -74,8 +79,10 @@ const fetchData = async (value) => {
   } catch (error) {
     // error
     console.log(error);
+    alert(error);
   } finally {
     // execute always
+    loader.innerText = "";
   }
 };
 

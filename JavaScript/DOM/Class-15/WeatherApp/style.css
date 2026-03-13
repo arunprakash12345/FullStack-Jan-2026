@@ -10,6 +10,13 @@ body {
   background: linear-gradient(135deg, #1d4350, #a43931);
 }
 
+.loading {
+  position: absolute;
+  top: 25px;
+  color: whitesmoke;
+  font-size: 18px;
+}
+
 .container {
   height: 100vh;
   display: flex;
