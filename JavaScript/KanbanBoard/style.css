@@ -86,7 +86,14 @@
 .add-btn,
 .remove-btn {
   font-size: 1.75rem;
+  cursor: pointer;
 }
+
+/* .add-btn:hover,
+.remove-btn:hover {
+  background-color: #303336;
+  border-radius: var(--containerRadius);
+} */
 
 .main-cont {
   display: flex;
@@ -100,13 +107,11 @@
   width: 15rem;
   background-color: var(--ticketBackgroundColor);
   border-radius: var(--containerRadius);
-  /* padding: 0.5rem; */
   position: relative;
 }
 
 .ticket-color {
   height: 10%;
-  background-color: var(--pink);
   border-top-left-radius: var(--containerRadius);
   border-top-right-radius: var(--containerRadius);
 }
@@ -129,16 +134,17 @@
   position: absolute;
   bottom: 0.2rem;
   right: 0.2rem;
+  border: none;
 }
 
 .modal-cont {
-  display: none !important;
+  /* display: none !important; */
   height: 50vh;
   width: 50vw;
   top: 25vh;
   left: 25vw;
   border-radius: var(--containerRadius);
-  display: flex;
+  display: none;
 }
 
 .modal-cont-textarea {
@@ -148,7 +154,7 @@
   border: none;
   resize: none;
   font-size: 1rem;
-  padding-left: 0.8rem;
+  padding: 0.8rem;
   border-top-left-radius: var(--containerRadius);
   border-bottom-left-radius: var(--containerRadius);
 }
@@ -157,7 +163,6 @@
   height: 100%;
   width: 25%;
   background-color: var(--headerBackGroundColor);
-  border-radius: var(--containerRadius);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -173,4 +178,12 @@
 
 .active {
   border: 0.4rem solid var(--light);
+}
+
+.delete-task {
+  position: absolute;
+  bottom: 0.2rem;
+  right: 1.8rem;
+  cursor: pointer;
+  border: none;
 }
