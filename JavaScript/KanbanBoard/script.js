@@ -9,9 +9,9 @@ const state = {
   isModalOpen: false,
   isDeleteTaskButtonOn: false,
   modalPriorityColor: "pink",
-  taskInfo: "",
-  taskId: "",
 };
+
+let ticketData = JSON.parse(localStorage.getItem("tickets")) || [];
 
 headerColors.forEach((color) => {
   color.addEventListener("click", (event) => {
@@ -64,8 +64,8 @@ allPriorityColor.forEach((color) => {
 formModalCont.addEventListener("keydown", (event) => {
   if (event.key === "Shift") {
     try {
-      state.taskInfo = textAreaInput.value;
-      createTicket();
+      const taskInfo = textAreaInput.value;
+      createTicket(taskInfo);
     } catch (error) {
       console.error(error);
     } finally {
@@ -75,16 +75,18 @@ formModalCont.addEventListener("keydown", (event) => {
   }
 });
 
-function createTicket() {
-  // create id
-  state.taskId = shortid();
+function createTicket(
+  taskInfo,
+  id = shortid(),
+  color = state.modalPriorityColor,
+) {
   const ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
   ticketCont.innerHTML = `
-   <div class="ticket-color ${state.modalPriorityColor}"></div>
-        <div class="ticket-id">${state.taskId}</div>
+   <div class="ticket-color ${color}"></div>
+        <div class="ticket-id">${id}</div>
         <div class="ticket-area">
-          ${state.taskInfo}
+          ${taskInfo}
         </div>
         <button class="delete-task" disabled=true>
           <i class="fa-solid fa-circle-xmark"></i>
@@ -92,22 +94,36 @@ function createTicket() {
         <button class="ticket-lock">
           <i class="fa-solid fa-lock"></i>
         </button>`;
-  mainContainer.appendChild(ticketCont);
-  handleDelete(ticketCont);
-  handleLock(ticketCont);
-  handleStatusColor(ticketCont);
+  const container = document.querySelector(
+    `.column[data-status=${color}] .ticket-list`,
+  );
+  container.appendChild(ticketCont);
+  handleDelete(ticketCont, id);
+  handleLock(ticketCont, id);
+  handleStatusColor(ticketCont, id);
+
+  if (!ticketData.find((t) => t.id === id)) {
+    ticketData.push({
+      id,
+      taskInfo,
+      color,
+    });
+    updateLocalStorage();
+  }
 }
 
-function handleDelete(container) {
+function handleDelete(container, id) {
   const deleteTask = container.querySelector(".delete-task");
   deleteTask.addEventListener("click", () => {
     if (state.isDeleteTaskButtonOn) {
       container.remove();
+      ticketData = ticketData.filter((t) => t.id !== id);
+      updateLocalStorage();
     }
   });
 }
 
-function handleLock(container) {
+function handleLock(container, id) {
   const lockBtnElem = container.querySelector(".ticket-lock");
   const lockIconElem = lockBtnElem.children[0];
   const textAreaElem = container.querySelector(".ticket-area");
@@ -127,17 +143,39 @@ function handleLock(container) {
       textAreaElem.setAttribute("contenteditable", false);
       textAreaElem.style = "border: none";
       currentIcon = "fa-lock";
+      const ticket = ticketData.find((t) => t.id === id);
+      if (ticket) {
+        ticket.taskInfo = textAreaElem.textContent.trim();
+        updateLocalStorage();
+      }
     }
   });
 }
 
-function handleStatusColor(container) {
+function handleStatusColor(container, id) {
   const colors = ["pink", "green", "blue", "purple"];
   const colorHeadingElem = container.querySelector(".ticket-color");
   colorHeadingElem.addEventListener("click", () => {
     const currentStatus = colorHeadingElem.classList[1];
     const currentIndex = colors.findIndex((c) => c === currentStatus);
+    const nextColor = colors[(currentIndex + 1) % colors.length];
     colorHeadingElem.classList.remove(currentStatus);
-    colorHeadingElem.classList.add(colors[(currentIndex + 1) % colors.length]);
+    colorHeadingElem.classList.add(nextColor);
+    document
+      .querySelector(`.column[data-status=${nextColor}] .ticket-list`)
+      .appendChild(container);
+    const ticket = ticketData.find((t) => t.id === id);
+    if (ticket) {
+      ticket.color = nextColor;
+      updateLocalStorage();
+    }
   });
 }
+
+function updateLocalStorage() {
+  localStorage.setItem("tickets", JSON.stringify(ticketData));
+}
+
+window.addEventListener("load", () => {
+  ticketData.forEach((t) => createTicket(t.taskInfo, t.id, t.color));
+});

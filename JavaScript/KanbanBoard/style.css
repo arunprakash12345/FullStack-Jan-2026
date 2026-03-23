@@ -108,9 +108,10 @@
 
 .main-cont {
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
+  gap: 1rem;
   padding: 2rem;
+  height: 93vh;
+  width: 100vw;
 }
 
 .ticket-cont {
@@ -201,4 +202,23 @@
   right: 1.8rem;
   cursor: pointer;
   border: none;
+}
+
+.column {
+  width: 25%;
+  background-color: #f4f4f4;
+  border-radius: var(--containerRadius);
+}
+
+.column h3 {
+  text-align: center;
+  padding-top: 0.2rem;
+}
+
+.ticket-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
