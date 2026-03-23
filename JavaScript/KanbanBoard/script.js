@@ -10,6 +10,7 @@ const state = {
   isDeleteTaskButtonOn: false,
   modalPriorityColor: "pink",
 };
+let draggedElem;
 
 let ticketData = JSON.parse(localStorage.getItem("tickets")) || [];
 
@@ -82,6 +83,7 @@ function createTicket(
 ) {
   const ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
+  ticketCont.draggable = true;
   ticketCont.innerHTML = `
    <div class="ticket-color ${color}"></div>
         <div class="ticket-id">${id}</div>
@@ -111,6 +113,32 @@ function createTicket(
     updateLocalStorage();
   }
 }
+
+// DROP
+let draggedElement;
+document.querySelectorAll(".ticket-list").forEach((container) => {
+  container.addEventListener("dragstart", (event) => {
+    console.log("dragStart: ", event);
+    draggedElement = event.target;
+  });
+
+  container.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    console.log("dragover : ", event);
+  });
+
+  container.addEventListener("drop", (event) => {
+    console.log("drop : ", event);
+    if (draggedElement) {
+      container.appendChild(draggedElement);
+      draggedElement = null;
+    }
+  });
+
+  container.addEventListener("dragend", (event) => {
+    console.log("dragend :", event);
+  });
+});
 
 function handleDelete(container, id) {
   const deleteTask = container.querySelector(".delete-task");
