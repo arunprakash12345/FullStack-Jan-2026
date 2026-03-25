@@ -10,9 +10,9 @@ const state = {
   isDeleteTaskButtonOn: false,
   modalPriorityColor: "pink",
 };
-let draggedElem;
 
 let ticketData = JSON.parse(localStorage.getItem("tickets")) || [];
+let draggedElement;
 
 headerColors.forEach((color) => {
   color.addEventListener("click", (event) => {
@@ -83,7 +83,6 @@ function createTicket(
 ) {
   const ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
-  ticketCont.draggable = true;
   ticketCont.innerHTML = `
    <div class="ticket-color ${color}"></div>
         <div class="ticket-id">${id}</div>
@@ -102,6 +101,7 @@ function createTicket(
   container.appendChild(ticketCont);
   handleDelete(ticketCont, id);
   handleLock(ticketCont, id);
+  handleDrag(ticketCont);
   handleStatusColor(ticketCont, id);
 
   if (!ticketData.find((t) => t.id === id)) {
@@ -114,29 +114,34 @@ function createTicket(
   }
 }
 
-// DROP
-let draggedElement;
-document.querySelectorAll(".ticket-list").forEach((container) => {
-  container.addEventListener("dragstart", (event) => {
-    console.log("dragStart: ", event);
-    draggedElement = event.target;
+function handleDrag(ticket) {
+  const handle = ticket.querySelector(".ticket-area");
+  handle.draggable = true;
+  handle.addEventListener("dragstart", () => {
+    draggedElement = ticket;
+    console.log("dragstart");
   });
-
-  container.addEventListener("dragover", (event) => {
-    event.preventDefault();
-    console.log("dragover : ", event);
+  handle.addEventListener("dragend", () => {
+    console.log("dragend");
+    draggedElement = null;
   });
+}
 
-  container.addEventListener("drop", (event) => {
-    console.log("drop : ", event);
-    if (draggedElement) {
-      container.appendChild(draggedElement);
-      draggedElement = null;
-    }
+document.querySelectorAll(".column").forEach((col) => {
+  col.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    console.log("dragover");
   });
-
-  container.addEventListener("dragend", (event) => {
-    console.log("dragend :", event);
+  col.addEventListener("drop", () => {
+    console.log("drop event called");
+    if (!draggedElement) return;
+    const ticketList = col.querySelector(".ticket-list");
+    ticketList.appendChild(draggedElement);
+    const newColor = col.dataset.status;
+    const ticketColorElem = draggedElement.querySelector(".ticket-color");
+    const currentColor = ticketColorElem.classList[1];
+    ticketColorElem.classList.remove(currentColor);
+    ticketColorElem.classList.add(newColor);
   });
 });
 
