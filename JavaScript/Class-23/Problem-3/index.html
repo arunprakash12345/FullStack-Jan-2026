@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UserInfo</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      h3 {
+        text-align: center;
+        text-decoration: underline;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem;
+        border: 1px solid black;
+        border-radius: 8px;
+        height: 50vh;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Click Below Button to Fetch Any Random User Details</h3>
+    <div class="container">
+      <button id="fetchUserBtn">Get Random User</button>
+      <div id="userCard">
+        <p id="userName"></p>
+        <p id="userEmail"></p>
+        <p id="userCountry"></p>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
