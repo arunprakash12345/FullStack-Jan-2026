@@ -1,0 +1,61 @@
+<!-- Star Component -->
+
+<!-- Requirements -->
+<!-- 1. Ratings would 1 to 5
+ 2. when clicked a star, rating should appear
+ 3. on hover selection of star should toggle
+
+ Good To have feature
+ 1. partial Ratings
+ 2. Emojis instead of number
+ 3. Feedback form -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Component</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-self: center;
+            border: 0.2rem solid black;
+            border-radius: 0.6rem;
+            background-color: thistle;
+            margin: 30vh 30vw;
+            padding: 5rem;
+        }
+
+        .star_container {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .star {
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .yellow {
+            color: rgb(247, 223, 8)
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Star Component</h1>
+      <div class="star_container">
+        <div class="star" idx="1">&#9733</div>
+        <div class="star" idx="2">&#9733</div>
+        <div class="star" idx="3">&#9733</div>
+        <div class="star" idx="4">&#9733</div>
+        <div class="star" idx="5">&#9733</div>
+      </div>
+      <h2>Ratings Count : <span id="count">0</span></h2>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>

@@ -1,0 +1,94 @@
+<!-- Create a Counter -->
+<!-- Requirement Gathering Phase (10 mins) -->
+
+<!-- MVP - Interview -->
+<!-- 1. counter (it should show existing value, starting from 0) -->
+<!-- 2. increment button -->
+<!-- 3. decrement button -->
+<!--4. reset button -->
+<!-- 5. Increment / decrement by -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: thistle;
+        height: 450px;
+        border: 1px solid black;
+        border-radius: 8px;
+        margin: 30px 30px;
+        gap: 10px;
+      }
+
+      button {
+        padding: 0.3rem 0.5rem;
+        background-color: #4792c4;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Counter</h1>
+      <div id="number">0</div>
+      <div>
+        Increment or Decrement By
+        <input type="text" id="increment_decrement" value="1" />
+      </div>
+      <div>
+        <button id="add">+</button>
+        <button id="subtract">-</button>
+        <button id="reset">Reset</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const add = document.getElementById("add");
+    const subtract = document.getElementById("subtract");
+    const reset = document.getElementById("reset");
+    const increment_decrement = document.getElementById("increment_decrement");
+    const number = document.getElementById("number");
+
+    add.addEventListener("click", () => {
+      const currentVal = parseInt(number.innerText);
+      const increment_decrement_value = parseInt(increment_decrement.value);
+      const updatedCounter = currentVal + increment_decrement_value;
+      number.innerText = updatedCounter;
+      if (number.innerText !== "0") {
+        subtract.disabled = false;
+      }
+    });
+    subtract.addEventListener("click", () => {
+      const currentVal = parseInt(number.innerText);
+      const increment_decrement_value = parseInt(increment_decrement.value);
+      const updatedCounter = currentVal - increment_decrement_value;
+      if (updatedCounter >= 0) {
+        number.innerText = updatedCounter;
+      } else {
+        number.innerText = 0;
+      }
+
+      if (number.innerText === "0") {
+        subtract.disabled = true;
+      }
+    });
+    reset.addEventListener("click", () => {
+      number.innerText = 0;
+      increment_decrement.value = 1;
+    });
+  </script>
+</html>
