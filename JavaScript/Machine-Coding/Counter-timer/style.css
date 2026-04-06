@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5rem;
+}
+
+.timer__label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 1.8rem;
+}
+
+.timer__inputs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.timer__inputs input {
+  width: 60px;
+  height: 60px;
+  font-size: 2rem;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 0.7rem;
+  outline: none;
+}
+
+.container_btns {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* .continue {
+  display: none;
+}
+
+.pause {
+  display: none;
+} */
