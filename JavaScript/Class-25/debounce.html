@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search</title>
+  </head>
+  <body>
+    <h2>Search</h2>
+    <input type="text" id="search" placeholder="type to search" />
+  </body>
+  <script>
+    const input = document.querySelector("#search");
+
+    const fetchData = (query) => {
+      setTimeout(() => {
+        console.log("API call got resolved for query : ", query);
+      }, 1000);
+    };
+
+    const debounce = (func, delay) => {
+      let timer;
+      return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          func(...args);
+        }, delay);
+      };
+    };
+
+    const debounceFetch = debounce(fetchData, 500);
+    input.addEventListener("input", (event) => {
+      //   fetchData(event.target.value);
+      debounceFetch(event.target.value);
+    });
+  </script>
+</html>
