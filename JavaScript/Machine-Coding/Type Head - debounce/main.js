@@ -267,6 +267,7 @@ searchInput.addEventListener("keyup", (e) => {
         results.forEach((result) => {
             if (result.classList.contains("highlight")) {
                 searchInput.value = result.innerText;
+                resultContainer.innerHTML = "";
             }
         })
     }
@@ -284,7 +285,6 @@ function highLight(results) {
 }
 
 resultContainer.addEventListener("click", (e) => {
-
     searchInput.value = e.target.innerText;
-
+    resultContainer.innerHTML = "";
 })
