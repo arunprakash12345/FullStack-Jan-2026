@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div class="root"></div>
+  </body>
+  <script type="text/babel">
+    // component
+    const root = ReactDOM.createRoot(document.querySelector(".root"));
+
+    // react component
+    function Container() {
+      return (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "5px",
+            margin: "10px",
+            border: "1px solid black",
+            padding: "10px",
+            flexWrap: "wrap",
+          }}
+        >
+          <Post
+            imageLink="https://www.shutterstock.com/image-photo/sun-sets-behind-mountain-ranges-600nw-2479236003.jpg"
+            description="A nature Picture"
+          />
+          <Post
+            imageLink="https://gratisography.com/wp-content/uploads/2025/05/gratisography-moon-robot-800x525.jpg"
+            description="An Astronaut Picture"
+          />
+          <Post
+            imageLink="https://img.freepik.com/free-photo/lavender-field-sunset-near-valensole_268835-3910.jpg?semt=ais_hybrid&w=740&q=80"
+            description="A tree in garden"
+          />
+        </div>
+      );
+    }
+
+    function Post(props) {
+      const { imageLink, description } = props;
+      return (
+        <div>
+          <img
+            src={imageLink}
+            alt="This is image link"
+            style={{ width: "200px", height: "200px", borderRadius: "8px" }}
+          />
+          <div id="description">{description}</div>
+        </div>
+      );
+    }
+
+    // react dom
+    root.render(<Container />);
+  </script>
+</html>
