@@ -46,7 +46,7 @@ const Banner = () => {
         <Spinner />
       ) : (
         movies?.length > 0 && (
-          <div className="relative h-[50vh]">
+          <div className="relative h-[47vh]">
             <div
               className="h-full bg-cover bg-center flex items-end"
               style={{
@@ -57,13 +57,13 @@ const Banner = () => {
                 {movies[currentIndex].title}
               </div>
               <button
-                className="absolute left-2 top-1/2 text-white p-2 rounded-full bg-amber-50/50"
+                className="absolute left-2 top-1/2 text-white p-2 rounded-full bg-amber-50/50 hover:cursor-pointer"
                 onClick={handlePrev}
               >
                 <ChevronLeft />
               </button>
               <button
-                className="absolute right-2 top-1/2 text-white p-2 rounded-full bg-amber-50/50"
+                className="absolute right-2 top-1/2 text-white p-2 rounded-full bg-amber-50/50 hover:cursor-pointer"
                 onClick={handleNext}
               >
                 <ChevronRight />
