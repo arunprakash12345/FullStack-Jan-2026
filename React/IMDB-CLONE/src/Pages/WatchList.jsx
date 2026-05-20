@@ -1,7 +1,8 @@
 import React from "react";
+import WatchListTable from "../Components/WatchListTable";
 
 const WatchList = () => {
-  return <div>WatchList</div>;
+  return <WatchListTable />;
 };
 
 export default WatchList;
