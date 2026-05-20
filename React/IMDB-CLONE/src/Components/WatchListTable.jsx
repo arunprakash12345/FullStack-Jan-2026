@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import genreids from "../helpers/GenreIds";
 import { ArrowDown, ArrowUp } from "lucide-react";
+import MovieRecommendations from "./MovieRecommendations";
 
 const WatchListTable = () => {
   const [watchList, setWatchList] = useState([]);
   const [search, setSearch] = useState("");
   const [genreList, setGenreList] = useState(["All Genre"]);
   const [currGenre, setCurrGenre] = useState("All Genre");
+  const [showModel, setShowModel] = useState(false);
 
   useEffect(() => {
     const watchListData = JSON.parse(localStorage.getItem("ImdbWatchList"));
@@ -43,6 +45,15 @@ const WatchListTable = () => {
 
   return (
     <>
+      <button
+        className="flex justify-center items-center bg-blue-400 hover:bg-blue-500 transition duration-300 h-[3rem] w-[14rem] text-white font-bold border border-blue-700 rounded-xl shadow-md cursor-pointer mx-[43%] my-4"
+        onClick={() => {
+          setShowModel((prev) => !prev);
+        }}
+      >
+        Recommed Movies
+      </button>
+      {showModel && <MovieRecommendations watchList={watchList} />}
       <div className="flex justify-center m-4">
         {genreList.length > 0 &&
           genreList?.map((genre, index) => {
